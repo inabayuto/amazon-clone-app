@@ -1,0 +1,206 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazonクローン - トップページ</title>
+    <style>
+        body { background: #eaeded; margin: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        .header {
+            background: #131921;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            height: 60px;
+        }
+        .logo { font-size: 2rem; font-weight: bold; color: #ff9900; margin-right: 32px; letter-spacing: -2px; }
+        .search-bar {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            margin-right: 32px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        .search-bar button {
+            background: #febd69;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 0 4px 4px 0;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .nav {
+            display: flex;
+            gap: 18px;
+            font-size: 0.95rem;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 3px;
+            transition: background 0.2s;
+        }
+        .nav a:hover { background: #232f3e; }
+        .account, .cart {
+            margin-left: 24px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .cart { position: relative; }
+        .cart::after {
+            content: '\1F6D2';
+            font-size: 1.3rem;
+            position: absolute;
+            left: -22px;
+            top: 0;
+        }
+        .main-banner {
+            width: 100%;
+            height: 260px;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            position: relative;
+        }
+        .main-banner .banner-text {
+            background: rgba(255,255,255,0.9);
+            margin: 24px;
+            padding: 18px 32px;
+            border-radius: 8px;
+            font-size: 1.3rem;
+            color: #232f3e;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 1.2rem 1rem 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 260px;
+            position: relative;
+        }
+        .card img { width: 100%; max-width: 220px; height: 120px; object-fit: contain; margin-bottom: 1rem; border-radius: 4px; }
+        .card .title { font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem; color: #232f3e; }
+        .card .desc { font-size: 0.97rem; color: #555; margin-bottom: 0.7rem; }
+        .card .btn {
+            background: #ffd814;
+            color: #111;
+            border: none;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: auto;
+        }
+        .card .btn:hover { background: #f7ca00; }
+        @media (max-width: 1000px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+            .main-banner { height: 120px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="logo">amazon<span style="color:#fff;font-size:1.1rem;">.co.jp</span></span>
+        <div class="search-bar">
+            <input type="text" placeholder="Amazon.co.jpで検索">
+            <button>検索</button>
+        </div>
+        <nav class="nav">
+            <a href="#">すべて</a>
+            <a href="#">ランキング</a>
+            <a href="#">新着商品</a>
+            <a href="#">Prime Video</a>
+            <a href="#">ギフト券</a>
+            <a href="#">Amazon Basics</a>
+        </nav>
+        <a href="#" class="account">アカウント＆リスト</a>
+        <a href="#" class="cart">カート</a>
+    </div>
+    <div class="main-banner">
+        <div class="banner-text">BACHELOR JAPAN シーズン6<br><span style="font-size:1rem;">Primeに登録して今すぐ観る</span></div>
+    </div>
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="title">本日のセール</div>
+                <img src="https://images-fe.ssl-images-amazon.com/images/G/09/JP-hq/2023/img/Events/XCM_CUTTLE_1533667_3153827_758x608_1X_ja_JP._SY608_CB602384888_.jpg" alt="セール">
+                <div class="desc">人気商品が本日限定でお買い得！</div>
+                <button class="btn">もっと見る</button>
+            </div>
+            <div class="card">
+                <div class="title">売れ筋ランキング</div>
+                <img src="https://images-na.ssl-images-amazon.com/images/I/71QKQ9mwV7L._AC_SL1500_.jpg" alt="ランキング">
+                <div class="desc">今売れている商品をチェック！</div>
+                <button class="btn">もっと見る</button>
+            </div>
+            <div class="card">
+                <div class="title">おすすめ商品</div>
+                <img src="https://images-na.ssl-images-amazon.com/images/I/61n-5L+QFGL._AC_SL1000_.jpg" alt="おすすめ">
+                <div class="desc">あなたへのおすすめ商品はこちら</div>
+                <button class="btn">詳細を見る</button>
+            </div>
+            <div class="card">
+                <div class="title">広告</div>
+                <img src="https://images-na.ssl-images-amazon.com/images/I/81eA0lGq6PL._AC_SL1500_.jpg" alt="広告">
+                <div class="desc">お得なキャンペーン情報をチェック！</div>
+                <button class="btn">今すぐ確認</button>
+            </div>
+        </div>
+        <div class="grid" style="margin-top:32px;">
+            <div class="card">
+                <div class="title">Prime Reading 人気マンガや雑誌が無料</div>
+                <img src="https://images-na.ssl-images-amazon.com/images/I/81vpsIs58WL._AC_SL1500_.jpg" alt="Prime Reading">
+                <div class="desc">Prime会員なら対象の本・雑誌が読み放題</div>
+                <button class="btn">詳しくはこちら</button>
+            </div>
+            <div class="card">
+                <div class="title">Kindle Unlimited</div>
+                <img src="https://images-na.ssl-images-amazon.com/images/I/61Iz2yy2CKL._AC_SL1000_.jpg" alt="Kindle Unlimited">
+                <div class="desc">30日間無料体験で読み放題</div>
+                <button class="btn">今すぐ体験</button>
+            </div>
+            <div class="card">
+                <div class="title">映画・TV番組が見放題</div>
+                <img src="https://images-na.ssl-images-amazon.com/images/I/91z0G7yQGGL._AC_SL1500_.jpg" alt="Prime Video">
+                <div class="desc">Prime Videoで人気作品を楽しもう</div>
+                <button class="btn">今すぐ観る</button>
+            </div>
+            <div class="card">
+                <div class="title">スタッフ募集中</div>
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="スタッフ">
+                <div class="desc">Amazon倉庫で一緒に働きませんか？</div>
+                <button class="btn">応募する</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
